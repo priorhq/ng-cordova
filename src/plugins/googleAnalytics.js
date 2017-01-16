@@ -6,10 +6,11 @@ angular.module('ngCordova.plugins.googleAnalytics', [])
   .factory('$cordovaGoogleAnalytics', ['$q', '$window', function ($q, $window) {
 
     return {
-      startTrackerWithId: function (id) {
+      startTrackerWithId: function (id, dispatchPeriod) {
+        dispatchPeriod = dispatchPeriod || 30;
         var d = $q.defer();
 
-        $window.analytics.startTrackerWithId(id, function (response) {
+        $window.analytics.startTrackerWithId(id, dispatchPeriod, function (response) {
           d.resolve(response);
         }, function (error) {
           d.reject(error);
