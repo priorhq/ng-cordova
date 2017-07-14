@@ -28,7 +28,7 @@ describe('Service: $cordovaGoogleAnalytics', function() {
     var result;
 
     spyOn($window.analytics, 'startTrackerWithId')
-      .and.callFake(function (id, successCb, errorCb) {
+      .and.callFake(function (id, dispatchPeriod, successCb, errorCb) {
         successCb('tracker started');
       });
 
@@ -49,7 +49,7 @@ describe('Service: $cordovaGoogleAnalytics', function() {
     var result;
 
     spyOn($window.analytics, 'startTrackerWithId')
-      .and.callFake(function (id, successCb, errorCb) {
+      .and.callFake(function (id, dispatchPeriod, successCb, errorCb) {
         errorCb('tracker id is not valid');
       });
 

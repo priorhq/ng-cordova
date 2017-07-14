@@ -31,6 +31,17 @@ angular.module('ngCordova.plugins.facebook', [])
           return q.promise;
         },
 
+        checkHasCorrectPermissions: function (permissions) {
+          var q = $q.defer();
+          facebookConnectPlugin.checkHasCorrectPermissions(permissions, function (res) {
+            q.resolve(res);
+          }, function (res) {
+            q.reject(res);
+          });
+
+          return q.promise;
+        },
+
         showDialog: function (options) {
           var q = $q.defer();
           facebookConnectPlugin.showDialog(options, function (res) {
